@@ -9,7 +9,7 @@ def average(scores):
     sum = 0
     for i in range(0, len(scores)):
         sum = sum + scores[i]
-    return (sum / len(scores))
+    return round((sum / len(scores)),2)
 
 def ranking(names, scores):
     indices = list(range(len(names)))
@@ -23,6 +23,6 @@ def above_average(names, scores):
 names =  ["Аня", "Боря", "Вика"]
 scores = [7.0,   9.0,    9.0]
 print(winner(names, scores))
-print(round(average(scores),2))
+print(average(scores))
 print(ranking(names, scores))
 print(above_average(names, scores))

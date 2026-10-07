@@ -11,7 +11,13 @@ def average(scores):
         sum = sum + scores[i]
     return (sum / len(scores))
 
+def ranking(names, scores):
+    indices = list(range(len(names)))
+    indices.sort(key=lambda i: -scores[i])
+    return [names[i] for i in indices]
+
 names =  ["Аня", "Боря", "Вика"]
 scores = [7.0,   9.0,    9.0]
 print(winner(names, scores))
 print(round(average(scores),2))
+print(ranking(names, scores))

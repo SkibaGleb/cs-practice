@@ -16,8 +16,13 @@ def ranking(names, scores):
     indices.sort(key=lambda i: -scores[i])
     return [names[i] for i in indices]
 
+def above_average(names, scores):
+    avg = average(scores)
+    return [names[i] for i in range(len(scores)) if scores[i] > avg]
+
 names =  ["Аня", "Боря", "Вика"]
 scores = [7.0,   9.0,    9.0]
 print(winner(names, scores))
 print(round(average(scores),2))
 print(ranking(names, scores))
+print(above_average(names, scores))

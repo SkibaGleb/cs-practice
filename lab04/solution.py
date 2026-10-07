@@ -6,10 +6,13 @@ def winner(names, scores):
     return names[best_index]
 
 def average(scores):
-    sum = 0
-    for i in range(0, len(scores)):
-        sum = sum + scores[i]
-    return round((sum / len(scores)),2)
+    if not scores:
+      return 0
+    else:
+      sum = 0
+      for i in range(0, len(scores)):
+          sum = sum + scores[i]
+      return round((sum / len(scores)),2)
 
 def ranking(names, scores):
     indices = list(range(len(names)))

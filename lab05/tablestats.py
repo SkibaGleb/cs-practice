@@ -1,8 +1,4 @@
 def read_rows(lines):
-    """
-    Parse CSV lines with header into list of dicts.
-    Empty lines and lines with wrong field count are skipped.
-    """
     rows = []
     header = None
     for line in lines:
@@ -20,7 +16,6 @@ def read_rows(lines):
 
 
 def count_types(rows):
-    """Count records of each type."""
     counts = {}
     for row in rows:
         kind = row.get("тип", "")
@@ -29,7 +24,6 @@ def count_types(rows):
 
 
 def total_minutes(rows, kind):
-    """Sum minutes for records of given type, rounded to 1 decimal."""
     total = 0.0
     for row in rows:
         if row.get("тип", "") != kind:
@@ -43,7 +37,6 @@ def total_minutes(rows, kind):
 
 
 def to_csv(counts):
-    """Format summary as CSV: header 'тип,количество', rows sorted by type."""
     lines = ["тип,количество"]
     for kind in sorted(counts):
         lines.append(f"{kind},{counts[kind]}")
